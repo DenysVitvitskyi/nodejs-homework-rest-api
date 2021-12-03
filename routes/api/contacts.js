@@ -3,7 +3,7 @@ const express = require("express");
 const { validation, ctrlWrapper } = require("../../middlewares")
 const { contactsSchema } = require("../../schemas")
 const { contacts: ctrl } = require("../../controllers")
-const { router } = require("../../app")
+const { router } = require("../../app");
 
 const validateMiddleware = validation(contactsSchema);
 
@@ -17,6 +17,6 @@ router.post("/", validateMiddleware, ctrlWrapper(ctrl.add));
 
 router.put("/:id", validation(contactsSchema), ctrlWrapper(ctrl.updateById));
 
-router.delete("/:id", ctrlWrapper(ctrl.removeById))
+router.delete("/:id", ctrlWrapper(ctrl.removeById));
 
 module.exports = router;
